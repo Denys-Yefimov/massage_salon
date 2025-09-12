@@ -1,35 +1,42 @@
+/* === Footer: Desktop === */
 footer {
-    position: fixed; /* Лип к низу */
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 95%;
+    position: fixed;
+    transform: translateX(10%);
+    width: 100%;
     max-width: 1200px;
-    z-index: 100;
+    padding: 15px 20px 5px 20px; /* top right bottom left */
     background: #714a94;
     color: #fff;
-    padding: 15px 20px;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
     box-shadow: 0 -3px 10px rgba(0,0,0,0.2);
     font-family: 'Outfit', sans-serif;
     box-sizing: border-box;
+    bottom: 0;
+    height: 120px; /* достаточно для прижатия футер-контейнера вниз */
 }
 
 .footer-container {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    max-width: 100%;
-    margin: 0 auto;
+    align-items: flex-end; /* прижимаем контакты и соцсети к низу футера */
+    width: 100%;
     gap: 15px;
 }
 
 .footer-contact {
-    flex: 1 1 250px;
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* прижимает текст к низу блока */
+    max-width: 50%;
     font-size: 0.9rem;
+}
+
+.footer-contact p {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 10px;
 }
 
 .footer-contact a {
@@ -41,31 +48,21 @@ footer {
     text-decoration: underline;
 }
 
-.footer-contact p {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    flex-wrap: wrap;
-    margin: 5px 0;
-}
-
 .footer-social {
     display: flex;
     justify-content: flex-end;
+    align-self: center;
     gap: 10px;
-    flex: 1 1 150px;
-    flex-wrap: wrap;
 }
 
 .social-btn {
     background: #fff;
     color: #714a94;
     border: none;
+    width: 48px;
+    height: 35px;
     border-radius: 50px;
-    padding: 5px 12px;
-    font-size: 1.1rem;
-    font-weight: bold;
+    font-size: 1rem;
     cursor: pointer;
     transition: background 0.3s, color 0.3s, transform 0.2s ease;
 }
@@ -85,61 +82,76 @@ footer {
 }
 
 .footer-politics {
-    width: 100%;
-    margin-top: 8px;
-    font-size: 0.8rem;
+    position: absolute;
+    bottom: 10px;  
+    left: 50%;
+    transform: translateX(-50%);
+    width: auto;
     text-align: center;
+    font-size: 0.8rem;
 }
 
 .footer-politics a {
     color: #fff;
     text-decoration: none;
-    transition: transform 0.2s ease, color 0.2s ease;
 }
 
 .footer-politics a:hover {
-    color: #fff;
     text-decoration: underline;
-    transform: translateY(-3px);
 }
 
-/* Responsive */
+/* === Media Queries: Tablet / Mobile === */
 @media (max-width: 768px) {
     footer {
-        position: fixed; /* чтобы футер не перекрывал контент */
-        padding: 12px 15px;
+        width: 100%;
+        right: 10%;
+        height: auto; /* адаптивная высота */
     }
 
-    .footer-container {
-        flex-direction: row;
+    .footer-container { 
+        flex-direction: column;
         align-items: center;
-        gap: 10px;
+        gap: 12px;
+    }
+
+    .footer-contact {
+        width: 100%;
+        text-align: center;
     }
 
     .footer-contact p {
-        flex-direction: column;
-        gap: 5px;
+        display: block;      /* отключаем flex */
+        margin: 5px 0;
+        line-height: 1.4;
+        gap: normal;
+        justify-content: unset;
     }
 
     .footer-social {
         justify-content: center;
-    }
-}
-
-@media (max-width: 400px) {
-    footer {
-        padding: 10px 12px;
-    }
-
-    .social-btn {
-        padding: 4px 10px;
-        font-size: 1rem;
+        width: 100%;
     }
 
     .footer-politics {
-        font-size: 0.75rem;
+        position: static; /* убираем absolute */
+        transform: none;
+        margin-top: 10px;
+        font-size: 0.65rem;
     }
 }
 
+/* === Very small screens === */
+@media (max-width: 500px) {
+    .social-btn {
+        width: 40px;
+        height: 32px;
+        font-size: 0.9rem;
+    }
+
+
+    .footer-politics {
+        font-size: 0.7rem;
+    }
+}
 
 
