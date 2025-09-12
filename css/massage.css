@@ -255,6 +255,11 @@ body {
         padding: 10px;
     }
 
+    .full-description {
+        max-height: 250px;
+        overflow-y: auto;
+    }
+
     .button-container {
         flex-direction: column;
         gap: 10px;
