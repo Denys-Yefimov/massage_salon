@@ -108,7 +108,7 @@ header h1 {
 
 @media (max-width: 600px) {
     .menu {
-        flex-direction: column;
+        flex-direction: row;
         align-items: center;
         border-bottom: none;
     }
