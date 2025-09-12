@@ -98,7 +98,7 @@
     </div>
 </section>
 <script>
-    const slides = document.querySelectorAll('.promo-slide');
+const slides = document.querySelectorAll('.promo-slide');
 const wrapper = document.querySelector('.promo-wrapper');
 const dots = document.querySelectorAll('.promo-dot');
 const leftArrow = document.querySelector('.left-arrow');
@@ -106,7 +106,7 @@ const rightArrow = document.querySelector('.right-arrow');
 let current = 0;
 
 function updateSlide() {
-    const offset = -current * 100; // сдвиг в процентах
+    const offset = -current * 100;
     wrapper.style.transform = `translateX(${offset}%)`;
     dots.forEach((dot, i) => dot.classList.toggle('active', i === current));
 }
@@ -134,6 +134,31 @@ setInterval(() => {
     updateSlide();
 }, 5000);
 
+// === Добавляем свайп для мобильных ===
+let startX = 0;
+let endX = 0;
+
+wrapper.addEventListener('touchstart', (e) => {
+    startX = e.touches[0].clientX;
+});
+
+wrapper.addEventListener('touchmove', (e) => {
+    endX = e.touches[0].clientX;
+});
+
+wrapper.addEventListener('touchend', () => {
+    const diff = startX - endX;
+    if (Math.abs(diff) > 50) {
+        if (diff > 0) {
+            current = (current + 1) % slides.length;
+        } else {
+            current = (current - 1 + slides.length) % slides.length;
+        }
+        updateSlide();
+    }
+});
+
 // Инициализация
 updateSlide();
 </script>
+

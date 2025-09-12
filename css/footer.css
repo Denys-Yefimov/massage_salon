@@ -1,32 +1,31 @@
-/* === Footer === */
 footer {
-    position: fixed;        /* лип к низу */
+    position: fixed; /* Лип к низу */
     bottom: 0;
-    left: 50%;              /* центрирование по горизонтали */
-    transform: translateX(-50%); /* чтобы центр был точно по середине */
-    width: 95%;             /* ширина футера меньше, чем 100% */
-    max-width: 1200px;      /* можно ограничить максимальную ширину */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 95%;
+    max-width: 1200px;
     z-index: 100;
     background: #714a94;
     color: #fff;
-    padding: 10px 15px;
+    padding: 15px 20px;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
+    box-shadow: 0 -3px 10px rgba(0,0,0,0.2);
+    font-family: 'Outfit', sans-serif;
+    box-sizing: border-box;
 }
 
-/* Footer container styling */
 .footer-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap; /* перенос блоков на маленьких экранах */
+    flex-wrap: wrap;
     max-width: 100%;
     margin: 0 auto;
-    padding: 0 2%;
-    gap: 10px;
+    gap: 15px;
 }
 
-/* Contact details styling */
 .footer-contact {
     flex: 1 1 250px;
     text-align: center;
@@ -42,23 +41,21 @@ footer {
     text-decoration: underline;
 }
 
-
-
 .footer-contact p {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 10px;
     flex-wrap: wrap;
-    color: #fff;
+    margin: 5px 0;
 }
 
-/* Social media buttons */
 .footer-social {
     display: flex;
-    justify-content: right;
+    justify-content: flex-end;
     gap: 10px;
     flex: 1 1 150px;
+    flex-wrap: wrap;
 }
 
 .social-btn {
@@ -66,11 +63,15 @@ footer {
     color: #714a94;
     border: none;
     border-radius: 50px;
-    padding: 2% 4%;
-    font-size: 130%;
+    padding: 5px 12px;
+    font-size: 1.1rem;
     font-weight: bold;
     cursor: pointer;
-    transition: background 0.2s, color 0.2s;
+    transition: background 0.3s, color 0.3s, transform 0.2s ease;
+}
+
+.social-btn:hover {
+    transform: scale(1.1);
 }
 
 .social-btn.fb:hover {
@@ -83,10 +84,9 @@ footer {
     color: #fff;
 }
 
-/* Footer politics */
 .footer-politics {
     width: 100%;
-    margin-top: 5px;
+    margin-top: 8px;
     font-size: 0.8rem;
     text-align: center;
 }
@@ -95,7 +95,6 @@ footer {
     color: #fff;
     text-decoration: none;
     transition: transform 0.2s ease, color 0.2s ease;
-    
 }
 
 .footer-politics a:hover {
@@ -104,12 +103,17 @@ footer {
     transform: translateY(-3px);
 }
 
-/* Responsive adjustments */
-@media (max-width: 400px) {
+/* Responsive */
+@media (max-width: 768px) {
+    footer {
+        position: fixed; /* чтобы футер не перекрывал контент */
+        padding: 12px 15px;
+    }
+
     .footer-container {
-        flex-direction: column;
+        flex-direction: row;
         align-items: center;
-        gap: 5px;
+        gap: 10px;
     }
 
     .footer-contact p {
@@ -119,8 +123,23 @@ footer {
 
     .footer-social {
         justify-content: center;
-        margin: 0;
     }
 }
+
+@media (max-width: 400px) {
+    footer {
+        padding: 10px 12px;
+    }
+
+    .social-btn {
+        padding: 4px 10px;
+        font-size: 1rem;
+    }
+
+    .footer-politics {
+        font-size: 0.75rem;
+    }
+}
+
 
 
