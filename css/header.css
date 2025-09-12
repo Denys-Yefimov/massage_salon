@@ -1,0 +1,124 @@
+/* === Header === */
+header {
+    font-family: 'Outfit', sans-serif;
+    padding: 5px 0; /* Reduce padding for smaller height */
+    background: #fff; /* Clean white background */
+    border-bottom: 1px solid #ffffff; /* Subtle border */
+    text-align: center;
+    position: relative;
+    top: 0;
+    z-index: 1000; /* Ensure it stays above other elements */
+    border-bottom-left-radius: 20px; /* Rounded bottom left corner */
+    border-bottom-right-radius: 20px; /* Rounded bottom right corner */
+}
+
+.header-container {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* === TITLE === */
+header h1 {
+    font-size: 1.8rem; /* Smaller font size */
+    font-weight: 500; /* Lighter font weight */
+    color: #6d3b77; /* Soft purple text */
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* === MENU === */
+.menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.menu button {
+    background: #eae6f0; /* Light lavender background */
+    border: none;
+    padding: 10px 18px;
+    font-size: 0.95rem;
+    color: #6d3b77; /* Soft purple text */
+    border-radius: 15px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.menu button:hover {
+    background: #d6cfe2; /* Slightly darker lavender */
+    color: #5a3870; /* Darker purple text */
+    cursor: pointer;
+}
+
+.menu button.active {
+    background-color: #714a94; /* Highlight active button */
+    color: #fff;
+    font-weight: bold;
+    border: 2px solid #5a3870; /* Add border for emphasis */
+}
+
+/* === Login Section === */
+.header-login {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    position: absolute;
+    right: 40px; /* Increase distance from the right wall */
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1rem;
+    color: #6d3b77;
+    cursor: pointer;
+}
+
+.header-login i {
+    font-size: 1.2rem;
+}
+
+.header-login:hover {
+    color: #5a3870;
+}
+
+/* === Responsive Adjustments === */
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    header h1 {
+        text-align: center;
+    }
+
+    header .menu {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width: 600px) {
+    .menu {
+        flex-direction: column;
+        align-items: center;
+        border-bottom: none;
+    }
+    .menu li {
+        margin: 5px 0;
+    }
+    .menu a {
+        width: 100vw;
+        max-width: 300px;
+        padding: 12px 0;
+        font-size: 1.1rem;
+    }
+}

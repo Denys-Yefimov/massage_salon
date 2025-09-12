@@ -1,0 +1,352 @@
+/* Styles for massage.php */
+
+/* General Styling */
+body {
+    font-family: 'Outfit', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f6fa;
+}
+
+/* Massage Block Styling */
+.massage-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px auto;
+    padding: 20px;
+    width: 90%; /* Adjustable container spanning most of the page */
+    max-width: 1400px;
+    border-radius: 15px;
+}
+
+.image-block img {
+    width: 100%;        /* Ширина блока */
+    height: 300px;      /* Фиксированная высота для всех изображений */
+    object-fit: cover;  /* Обрезает лишнее, сохраняет пропорции */
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.massage-block h2 {
+    font-size: 1.8rem;
+    color: #6d3b77;
+    margin: 15px 0;
+}
+
+.massage-block p {
+    font-size: 1rem;
+    color: #6d3b77;
+    line-height: 1.6;
+    text-align: justify;
+}
+
+.massage-block .button-container {
+    margin-top: 20px;
+}
+
+.massage-block .btn {
+    display: inline-block;
+    padding: 12px 24px;
+    font-size: 1rem;
+    color: #fff;
+    background-color: #6d3b77;
+    text-decoration: none;
+    border-radius: 25px;
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.massage-block .btn:hover {
+    background-color: #5a3870;
+    transform: scale(1.05);
+}
+
+/* Updated Layout Styling */
+.massage-container {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start; /* Align items to the top */
+    justify-content: space-between;
+    gap: 20px;
+    width: 90%; /* Ensure full width within the block */
+    padding: 20px;
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.image-block {
+    flex: 1;
+    max-width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    position: static; /* Reverted to sticky positioning */
+    top: 0; /* Align top of the picture with the description */
+    margin-top: 0; /* Increased margin for better alignment */
+}
+
+.image-block img {
+    width: 100%;        /* Ширина блока */
+    height: 300px;      /* Фиксированная высота для всех изображений */
+    object-fit: cover;  /* Обрезает лишнее, сохраняет пропорции */
+    border-radius: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 600px) {
+    .image-block img {
+        height: 100%; /* меньше для мобильных */
+    }
+}
+
+.description-block {
+    flex: 2;
+    font-size: 1rem; /* Reduced font size by 30% */
+    color: #6d3b77;
+    line-height: 1.8; /* Adjusted line height for readability */
+    text-align: justify;
+    overflow: hidden; /* Ensure hidden overflow for animation */
+}
+
+.description-block h2 {
+    font-size: 2rem; /* Reverted to original size for headings */
+    color: #5a3870;
+    margin-bottom: 15px;
+}
+
+.description-block p {
+    font-size: 1rem; /* Reduced font size by 30% */
+    color: #6d3b77;
+    line-height: 1.8; /* Adjusted line height for readability */
+    margin-bottom: 20px;
+    opacity: 1; /* Ensure text is visible */
+    transform: none; /* Remove animation transform */
+    transition: none; /* Remove animation transition */
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-between; /* Restore horizontal alignment for other buttons */
+    align-items: center;
+    gap: 10px;
+}
+
+.button-container select {
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 25px; /* Rounded button for price change */
+    background-color: #f8f6fa;
+    color: #6d3b77;
+    transition: border-color 0.3s ease;
+}
+
+.button-container select:focus {
+    border-color: #5a3870;
+    outline: none;
+}
+
+#price {
+    margin-left: auto; /* Push price info to the right */
+    font-size: 1.4rem;
+    color: #5a3870;
+    font-weight: bold;
+}
+
+.close-button {
+    display: block;
+    margin: 20px auto; /* Center the button horizontally and vertically on the next line */
+    padding: 12px 24px;
+    font-size: 1rem;
+    color: #fff;
+    background-color: #6d3b77;
+    text-decoration: none;
+    border-radius: 25px;
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    position: relative; /* Allow for fine-tuned positioning */
+    top: 0; /* Reset vertical adjustment */
+}
+
+.close-button:hover {
+    background-color: #5a3870;
+    transform: scale(1.05);
+}
+
+.expanded-description {
+    opacity: 0;
+    transform: translateY(20px);
+    max-height: 0;
+    overflow: hidden;
+    transition: opacity 1s ease, transform 1s ease, max-height 1.2s ease;
+}
+
+
+.expanded-description.show {
+    opacity: 1;
+    transform: translateY(0);
+    max-height: 2000px; /* large enough to reveal all */
+}
+
+/* Book Button Styling */
+.book-button {
+    background-color: #4CAF50; /* Green color */
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 1rem;
+    border-radius: 25px; /* Rounded button */
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    margin-left: 10px; /* Add spacing from the Close button */
+}
+
+.book-button:hover {
+    background-color: #45a049; /* Darker green for hover effect */
+    transform: scale(1.05); /* Slight zoom effect */
+}
+
+/* Select Time Dropdown Styling */
+.time-price-container select {
+    padding: 10px 15px;
+    font-size: 1rem;
+    color: #6d3b77;
+    background-color: #f8f6fa;
+    border: 1px solid #ddd;
+    border-radius: 25px; /* Rounded corners */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.time-price-container select:focus {
+    border-color: #5a3870; /* Highlight border on focus */
+    box-shadow: 0 0 5px rgba(90, 56, 112, 0.5); /* Subtle glow effect */
+    outline: none;
+}
+
+.time-price-container label {
+    font-size: 1rem;
+    color: #5a3870;
+    margin-right: 10px;
+}
+
+/* Responsive Styles */
+@media (max-width: 600px) {
+    .massage-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .image-block {
+        max-width: 100%;
+        margin: 0 auto;
+    }
+
+    .description-block {
+        text-align: center;
+        padding: 10px;
+    }
+
+    .button-container {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .btn {
+        font-size: 0.9rem;
+        padding: 10px 20px;
+    }
+
+    .time-price-container select {
+        width: 100%;
+    }
+}
+
+
+.booking-page {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 0 20px;
+    font-family: Arial, sans-serif;
+}
+
+.service-card {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #fff;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.3s;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+}
+
+.service-image {
+    width: 40%;
+    min-width: 250px;
+    object-fit: cover;
+    border-right: 1px solid #eee;
+}
+
+.service-info {
+    flex: 1;
+    padding: 20px;
+}
+
+.service-title {
+    font-size: 28px;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.service-description {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    color: #555;
+}
+
+.service-options {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 20px;
+}
+
+.service-options li {
+    background: #f9f9f9;
+    padding: 10px 15px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+.btn {
+    display: inline-block;
+    text-decoration: none;
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 12px 25px;
+    border-radius: 8px;
+    transition: background 0.3s;
+}
+
+.btn:hover {
+    background-color: #45a049;
+}
+
+.not-found {
+    text-align: center;
+    font-size: 18px;
+    color: #d9534f;
+}

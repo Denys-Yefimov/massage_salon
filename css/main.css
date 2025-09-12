@@ -1,0 +1,345 @@
+/* === General Styles === */
+body {
+    font-family: 'Outfit', sans-serif;
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-size: cover;
+    padding-bottom: 70px;
+}
+
+/* Main Block Styling */
+.main-container {
+    display: flex;
+    align-items: center; /* по вертикали */
+    justify-content: space-between; /* распределяем текст и картинку */
+    padding: 50px 20px;
+    gap: 30px;
+    flex-wrap: wrap; /* чтобы на маленьких экранах колонки переносились */
+}
+
+/* Description Block Styling */
+.description-block {
+    flex: 1 1 400px; /* минимальная ширина 400px, растёт по мере места */
+    max-width: 600px;
+}
+
+.description-block h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Image Block Styling */
+.image-block {
+    flex: 1 1 400px; /* минимальная ширина 300px */
+    text-align: center;
+}
+
+
+.main-image {
+    width: 60%;       /* занимает всю ширину блока */
+    max-width: 700px;  /* максимум, чтобы не была слишком большой */
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+
+@media (max-width: 768px) {
+    .main-container {
+        flex-direction: column;
+        padding: 30px 15px;
+    }
+
+    .description-block, .image-block {
+        max-width: 100%;
+    }
+
+    .description-block h2 {
+        font-size: 1.8rem;
+    }
+}
+
+/* Button Styles */
+.btn {
+    display: inline-block;
+    padding: 12px 24px;
+    font-size: 1rem;
+    color: #fff;
+    background-color: #6d3b77; /* Soft purple matching the page aesthetic */
+    text-decoration: none;
+    border-radius: 25px; /* Rounded button for a modern look */
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.btn:hover {
+    background-color: #5a3870; /* Darker purple for hover effect */
+    transform: scale(1.05); /* Slight zoom effect on hover */
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+/* Promo Widget Styling */
+.promo-widget {
+    width: 100%;         /* чтобы занимал всю доступную ширину */
+    max-width: 900px;    /* ограничение максимальной ширины */
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+    left: 300px;
+    z-index: 1; 
+}
+
+.promo-container {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    max-width: 900px;
+    height: auto; /* пусть высота подстраивается под содержимое */
+}
+
+.promo-wrapper {
+    display: flex;
+    transition: transform 1.5s ease-in-out;
+}
+
+.promo-slide {
+    display: flex;
+    flex: 0 0 100%;
+    justify-content: flex-start; /* сдвигаем влево */
+    align-items: center;         /* по вертикали центр */
+}
+
+.slide-image {
+    width: 301px;    /* фиксированная ширина */
+    height: 167px;   /* фиксированная высота */
+    margin-right: 20px; /* отступ между картинкой и текстом */
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.slide-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+.slide-text {
+    flex: 1;              /* занимает оставшееся место справа */
+    text-align: left;     /* текст слева */
+    font-size: 18px;
+    display: flex;
+    align-items: center;  /* вертикальное центрирование */
+}
+
+.promo-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.3);
+    color: #fff;
+    border: none;
+    font-size: 30px;
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 5px;
+    z-index: 3;
+}
+
+.left-arrow { left: 10px; }
+.right-arrow { right: 10px; }
+
+.promo-dots {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.promo-dot {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    margin: 0 5px;
+    background: #ccc;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.promo-dot.active {
+    background: #333;
+}
+
+/* Button Styles */
+.btn {
+    display: inline-block;
+    padding: 12px 24px;
+    font-size: 1rem;
+    color: #fff;
+    background-color: #6d3b77; /* Soft purple matching the page aesthetic */
+    text-decoration: none;
+    border-radius: 25px; /* Rounded button for a modern look */
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.btn:hover {
+    background-color: #5a3870; /* Darker purple for hover effect */
+    transform: scale(1.05); /* Slight zoom effect on hover */
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+/* Promo Widget Styling */
+.promo-widget {
+    position: relative;
+    width: 100%;
+    height: auto; /* Adjust height dynamically */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 80px 0; /* Indentation from top and bottom */
+}
+
+.promo-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    background-color: #f8f6fa; /* Matches page aesthetic */
+    position: relative;
+}
+
+.promo-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+    opacity: 0;                  /* скрываем по умолчанию */
+    transition: opacity 0.3s ease;
+}
+
+.promo-widget:hover .promo-arrow {
+    opacity: 1;}
+
+.left-arrow {
+    left: 10px;
+}
+
+.right-arrow {
+    right: 10px;
+}
+
+.promo-dots {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.promo-dot {
+    width: 10px;
+    height: 10px;
+    margin: 0 5px;
+    background: #ccc;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.promo-dot.active {
+    background: #6d3b77; /* Matches the page aesthetic */
+}
+
+.promo-image {
+    flex: 1;
+    max-width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.promo-image img {
+    max-width: 100%;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.promo-text {
+    flex: 1;
+    font-size: 2.5rem; /* Bigger text */
+    color: #6d3b77; /* Matches text color */
+    font-weight: 600;
+    text-align: left;
+    padding: 20px;
+}
+
+/* Book Button Styling */
+.book-button {
+    background-color: #4CAF50; /* Green color */
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 1rem;
+    border-radius: 25px; /* Rounded button */
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.book-button:hover {
+    background-color: #45a049; /* Darker green for hover effect */
+    transform: scale(1.05); /* Slight zoom effect */
+}
+
+
+/* Adjust text positioning for the page */
+.description-block {
+    text-align: justify;
+    line-height: 1.6;
+    margin: 20px auto;
+    padding: 20px;
+    max-width: 800px;
+}
+
+/* Logo Container Styling */
+.logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.logo {
+    max-width: 100px;
+    height: auto;
+    border-radius: 10px;
+}
+

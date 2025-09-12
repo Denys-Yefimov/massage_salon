@@ -1,0 +1,139 @@
+
+
+<!-- Main Section: Description Block -->
+<main class="main-container">
+    <div class="description-block">
+        <h2>Welcome to Salon masażu & SPA Nirvana</h2>
+        <p>
+            Experience relaxation and rejuvenation in our tranquil salon. Our professional staff is dedicated to your well-being, offering a variety of massage and spa treatments tailored to your needs. Let us help you unwind and restore balance to your body and mind.
+        </p>
+    </div>
+    <div class="image-block">
+        <img src="pictures/logo.jpeg" alt="Salon Interior" class="main-image" loading="lazy">
+    </div>
+</main>
+
+<!-- New Block Our Services --> 
+<main class="main-container">
+        <div class="image-block">
+            <img src="pictures/massage.jpg" alt="Massage Services" class="main-image" loading="lazy">
+        </div>
+
+    <div class="description-block">
+        <div class="text-block">
+            <h2>Our Services</h2>
+            <p>
+                Our salon offers a wide variety of massages, starting from relaxing face massages to advanced ninja techniques. Discover the perfect treatment tailored to your needs and experience the ultimate relaxation.
+            </p>
+            <div class="button-container">
+                <a href="massages.php" class="btn" loading="lazy">Explore Massages</a>
+            </div>
+        </div>
+    </div>
+</main>
+
+<!-- Team Section: Description Block Our Team -->
+<main class="main-container">
+    <div class="description-block">
+        <div class="text-block">
+            <h2>Our Team</h2>
+            <p>
+                In our salon, we have professionals with years of experience who are dedicated to providing the best care and relaxation for our clients. Their expertise ensures that every treatment is tailored to your needs, offering a truly rejuvenating experience.
+            </p>
+            <div class="button-container">
+                <a href="team.php" class="btn">Meet Our Team</a>
+            </div>
+        </div>
+    </div>
+        <div class="image-block">
+            <img src="pictures/team.jpg" alt="Our Team" class="main-image">
+        </div>
+</main>
+
+<!-- Promotion Widget Section -->
+<section class="promo-widget">
+    <div class="promo-container">
+        <button class="promo-arrow left-arrow">&#8249;</button>
+        <div class="promo-wrapper">
+            <div class="promo-slide">
+                <div class="slide-image">
+                    <img src="pictures/promo1.jpg" alt="Promotion 1">
+                </div>
+                <div class="slide-text">
+                    Welcome to our salon! Enjoy 20% off on your first visit!
+                </div>
+            </div>
+            <div class="promo-slide">
+                <div class="slide-image">
+                    <img src="pictures/assets_task_01jznspgnyefhadnh9jk4079nv_1752004540_img_0.webp" alt="Promotion 2">
+                </div>
+                <div class="slide-text">
+                    Book a massage session and get a free facial treatment!
+                </div>
+            </div>
+            <div class="promo-slide">
+                <div class="slide-image">
+                    <img src="pictures/hour.jpg" alt="Promotion 3">
+                </div>
+                <div class="slide-text">
+                    Happy Hours: 30% off on all services from 2 PM to 5 PM!
+                </div>
+            </div>
+            <div class="promo-slide">
+                <div class="slide-image">
+                    <img src="pictures/face.jpg" alt="Promotion 4">
+                </div>
+                <div class="slide-text">
+                    Refer a friend and both get 15% off your next visit!
+                </div>
+            </div>
+        </div>
+        <button class="promo-arrow right-arrow">&#8250;</button>
+    </div>
+    <div class="promo-dots">
+        <span class="promo-dot active" data-index="0"></span>
+        <span class="promo-dot" data-index="1"></span>
+        <span class="promo-dot" data-index="2"></span>
+        <span class="promo-dot" data-index="3"></span>
+    </div>
+</section>
+<script>
+    const slides = document.querySelectorAll('.promo-slide');
+const wrapper = document.querySelector('.promo-wrapper');
+const dots = document.querySelectorAll('.promo-dot');
+const leftArrow = document.querySelector('.left-arrow');
+const rightArrow = document.querySelector('.right-arrow');
+let current = 0;
+
+function updateSlide() {
+    const offset = -current * 100; // сдвиг в процентах
+    wrapper.style.transform = `translateX(${offset}%)`;
+    dots.forEach((dot, i) => dot.classList.toggle('active', i === current));
+}
+
+leftArrow.addEventListener('click', () => {
+    current = (current - 1 + slides.length) % slides.length;
+    updateSlide();
+});
+
+rightArrow.addEventListener('click', () => {
+    current = (current + 1) % slides.length;
+    updateSlide();
+});
+
+dots.forEach(dot => {
+    dot.addEventListener('click', e => {
+        current = parseInt(e.target.dataset.index);
+        updateSlide();
+    });
+});
+
+// Автопрокрутка каждые 5 секунд
+setInterval(() => {
+    current = (current + 1) % slides.length;
+    updateSlide();
+}, 5000);
+
+// Инициализация
+updateSlide();
+</script>

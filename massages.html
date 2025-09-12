@@ -1,0 +1,127 @@
+<head>
+  <meta charset="UTF-8">
+  <title><?= $title ?? "Мой сайт" ?></title>
+
+  <!-- Подключаем общий CSS -->
+  <link rel="stylesheet" href="/massage_salon/css/massage.css">
+  <link rel="stylesheet" href="/massage_salon/css/main.css">
+
+  <!-- Подключаем Font Awesome для иконок -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<!-- HTML контент тут -->
+<div class="massage-block">
+    <?php foreach ($groupedMassages as $ser_id => $massage): ?>
+
+        <?php
+        // Берём описание из базы
+        $fullDescription = $massage['description'] ?? '';
+
+        // Короткое описание (первые 150 символов, без HTML)
+        $shortDescription = htmlspecialchars(substr(strip_tags($fullDescription), 0, 150)) . '...';
+
+        // Разбиваем текст на абзацы по двойным переносам строки
+        $paragraphs = preg_split("/\n\s*\n/", $fullDescription);
+
+        // Формируем HTML для полного описания
+        $fullDescriptionHTML = '';
+        $ulOpened = false;
+        foreach ($paragraphs as $para) {
+            $para = trim($para);
+            if (!$para) continue;
+
+            // Если параграф начинается с "–" → делаем список
+            if (str_starts_with($para, '–')) {
+                if (!$ulOpened) {
+                    $fullDescriptionHTML .= '<ul>';
+                    $ulOpened = true;
+                }
+                $fullDescriptionHTML .= '<li>' . htmlspecialchars(ltrim($para, '– ')) . '</li>';
+            } else {
+                if ($ulOpened) {
+                    $fullDescriptionHTML .= '</ul>';
+                    $ulOpened = false;
+                }
+                $fullDescriptionHTML .= '<p>' . htmlspecialchars($para) . '</p>';
+            }
+        }
+        if ($ulOpened) $fullDescriptionHTML .= '</ul>';
+        ?>
+
+        <div class="massage-container">
+            <div class="image-block">
+                <img src="<?= htmlspecialchars($massage['image_path']) ?>" alt="<?= htmlspecialchars($massage['name']) ?>" loading="lazy">
+            </div>
+            <div class="description-block">
+                <h2><?= htmlspecialchars($massage['name']) ?></h2>
+
+                <!-- короткое описание -->
+                <p class="short-description"><?= $shortDescription ?></p>
+
+                <!-- полное описание скрыто -->
+                <div class="full-description" style="display: none;">
+                    <?= $fullDescriptionHTML ?>
+                </div>
+
+                <div class="time-price-container" style="display: none;">
+                    <label for="time-select-<?= $ser_id ?>">Select Time:</label>
+                    <select id="time-select-<?= $ser_id ?>" onchange="updatePrice(<?= $ser_id ?>)">
+                        <?php foreach ($massage['times'] as $index => $time): ?>
+                            <option value="<?= $massage['prices'][$index] ?>">
+                                <?= htmlspecialchars($time) ?> minutes
+                            </option>
+                        <?php endforeach; ?>
+                    </select>
+                    <p class="price-info">Price: <span id="price-<?= $ser_id ?>"><?= htmlspecialchars($massage['prices'][0]) ?>zł</span></p>
+                </div>
+
+                <div class="button-container">
+                    <button class="btn" onclick="showMore(<?= $ser_id ?>)">Show More</button>
+                </div>
+            </div>
+        </div>
+    <?php endforeach; ?>
+</div>
+
+<script>
+// JS для взаимодействия
+function showMore(ser_id) {
+    const block = document.querySelectorAll('.description-block')[ser_id - 1];
+    block.querySelector('.short-description').style.display = 'none';
+    block.querySelector('.full-description').style.display = 'block'; // показать полное описание
+    block.querySelector('.time-price-container').style.display = 'block';
+
+    const buttonContainer = block.querySelector('.button-container');
+    buttonContainer.innerHTML = '';
+
+    const closeBtn = document.createElement('button');
+    closeBtn.className = 'btn';
+    closeBtn.textContent = 'Close';
+    closeBtn.onclick = () => closeDescription(ser_id);
+    buttonContainer.appendChild(closeBtn);
+
+    const bookBtn = document.createElement('button');
+    bookBtn.className = 'book-button';
+    bookBtn.textContent = 'Book';
+    bookBtn.onclick = () => location.href = `booking.php?ser_id=${ser_id}`;
+    buttonContainer.appendChild(bookBtn);
+}
+
+function closeDescription(ser_id) {
+    const block = document.querySelectorAll('.description-block')[ser_id - 1];
+    block.querySelector('.short-description').style.display = 'block';
+    block.querySelector('.full-description').style.display = 'none'; // <-- добавил скрытие
+    block.querySelector('.time-price-container').style.display = 'none';
+
+    const buttonContainer = block.querySelector('.button-container');
+    buttonContainer.innerHTML = `<button class="btn" onclick="showMore(${ser_id})">Show More</button>`;
+}
+
+
+
+function updatePrice(ser_id) {
+    const select = document.getElementById(`time-select-${ser_id}`);
+    document.getElementById(`price-${ser_id}`).textContent = `${select.value}zł`;
+}
+</script>
+

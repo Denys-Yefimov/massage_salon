@@ -1,0 +1,126 @@
+/* === Footer === */
+footer {
+    position: fixed;        /* лип к низу */
+    bottom: 0;
+    left: 50%;              /* центрирование по горизонтали */
+    transform: translateX(-50%); /* чтобы центр был точно по середине */
+    width: 95%;             /* ширина футера меньше, чем 100% */
+    max-width: 1200px;      /* можно ограничить максимальную ширину */
+    z-index: 100;
+    background: #714a94;
+    color: #fff;
+    padding: 10px 15px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+/* Footer container styling */
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* перенос блоков на маленьких экранах */
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0 2%;
+    gap: 10px;
+}
+
+/* Contact details styling */
+.footer-contact {
+    flex: 1 1 250px;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.footer-contact a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.footer-contact a:hover {
+    text-decoration: underline;
+}
+
+
+
+.footer-contact p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    color: #fff;
+}
+
+/* Social media buttons */
+.footer-social {
+    display: flex;
+    justify-content: right;
+    gap: 10px;
+    flex: 1 1 150px;
+}
+
+.social-btn {
+    background: #fff;
+    color: #714a94;
+    border: none;
+    border-radius: 50px;
+    padding: 2% 4%;
+    font-size: 130%;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+
+.social-btn.fb:hover {
+    background: #3b5998;
+    color: #fff;
+}
+
+.social-btn.ig:hover {
+    background: #e1306c;
+    color: #fff;
+}
+
+/* Footer politics */
+.footer-politics {
+    width: 100%;
+    margin-top: 5px;
+    font-size: 0.8rem;
+    text-align: center;
+}
+
+.footer-politics a {
+    color: #fff;
+    text-decoration: none;
+    transition: transform 0.2s ease, color 0.2s ease;
+    
+}
+
+.footer-politics a:hover {
+    color: #fff;
+    text-decoration: underline;
+    transform: translateY(-3px);
+}
+
+/* Responsive adjustments */
+@media (max-width: 400px) {
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+    }
+
+    .footer-contact p {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .footer-social {
+        justify-content: center;
+        margin: 0;
+    }
+}
+
+
