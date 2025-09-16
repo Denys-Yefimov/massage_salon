@@ -108,7 +108,8 @@ footer {
         height: auto; /* адаптивная высота */
         text-align: center; /* Center align footer content */
         margin: 0 auto; /* Center the footer horizontally */
-        left: 0; /* Shift the footer container to the right */
+        left: 50%; /* Center the footer horizontally */
+        transform: translateX(-50%); /* Adjust for centering */
     }
 
     .footer-container { 
