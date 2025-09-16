@@ -49,5 +49,3 @@ $title = "Our Services";
 // Подключаем базовый шаблон
 include 'base.php';
 
-?>
-

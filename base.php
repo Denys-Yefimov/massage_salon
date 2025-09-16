@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="css/header.css?v=1">
   <link rel="stylesheet" href="css/footer.css">
   <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/massages.css">
 
  <!-- Подключаем Google Fonts вместо тяжелых TTF -->
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">

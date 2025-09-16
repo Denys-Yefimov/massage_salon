@@ -1,11 +1,13 @@
 /* === Header === */
 header {
+    width: 100%;
     font-family: 'Outfit', sans-serif;
     padding: 5px 0; /* Reduce padding for smaller height */
     background: #fff; /* Clean white background */
+    color: #fff;
     border-bottom: 1px solid #ffffff; /* Subtle border */
     text-align: center;
-    position: relative;
+    position: fixed;
     top: 0;
     z-index: 1000; /* Ensure it stays above other elements */
     border-bottom-left-radius: 20px; /* Rounded bottom left corner */
@@ -18,6 +20,7 @@ header {
     display: flex;
     flex-direction: column;
     align-items: center;
+    color: #fff;
 }
 
 /* === TITLE === */
@@ -90,6 +93,10 @@ header h1 {
 
 /* === Responsive Adjustments === */
 @media (max-width: 768px) {
+    header{
+        position: relative;
+    }
+
     .header-container {
         flex-direction: column;
         align-items: center;

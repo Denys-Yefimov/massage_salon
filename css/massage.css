@@ -2,10 +2,10 @@
 
 /* General Styling */
 body {
+    display: flex;
     font-family: 'Outfit', sans-serif;
-    margin: 0;
-    padding: 0;
     background-color: #f8f6fa;
+    height: 100%;
 }
 
 /* Massage Block Styling */
