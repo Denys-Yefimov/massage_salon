@@ -104,6 +104,8 @@ header h1 {
         justify-content: center;
         flex-wrap: wrap;
     }
+
+    
 }
 
 @media (max-width: 600px) {
@@ -120,5 +122,46 @@ header h1 {
         max-width: 300px;
         padding: 12px 0;
         font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        padding: 10px 0; /* Adjust padding for smaller screens */
+        border-bottom-left-radius: 10px; /* Reduce corner radius */
+        border-bottom-right-radius: 10px;
+    }
+
+    .header-container {
+        max-width: 100%; /* Use full width */
+        padding: 0 10px; /* Add horizontal padding */
+    }
+
+    header h1 {
+        font-size: 1.5rem; /* Reduce font size */
+        letter-spacing: 0.8px; /* Adjust spacing */
+    }
+
+    .menu {
+        flex-direction: row; /* Ensure menu items are in one row */
+        flex-wrap: wrap; /* Allow wrapping if needed */
+        justify-content: center; /* Center items horizontally */
+        gap: 5px; /* Adjust gap for smaller screens */
+    }
+
+    .menu button {
+        flex: 1 1 auto; /* Allow buttons to shrink and grow */
+        max-width: 120px; /* Set a maximum width for buttons */
+        padding: 8px 12px; /* Adjust button padding */
+        font-size: 0.9rem; /* Reduce font size */
+    }
+
+    .header-login {
+        right: 20px; /* Adjust position */
+        font-size: 0.9rem; /* Reduce font size */
+    }
+
+    .header-login i {
+        font-size: 1rem; /* Adjust icon size */
     }
 }
