@@ -24,6 +24,9 @@ main{
     padding: 50px 20px;
     gap: 30px;
     flex-wrap: wrap; /* перенос колонок на маленьких экранах */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Add shadow to divide main blocks */
+    border-radius: 10px; /* Add slight rounding for a polished look */
+    margin: 0 auto; /* Center the main blocks horizontally */
 }
 
 .description-block {
@@ -223,61 +226,94 @@ main{
 /* Small screens (phones <768px) */
 @media (max-width: 768px) {
     .main-container {
-        flex-direction: column;
-        align-items: center;
-        padding: 30px 15px;
-        gap: 20px;
+        width: 85%; /* Reduce width slightly to add more space */
+        padding: 6%; /* Increase padding around the container */
+        margin: 0 auto; /* Center the container */
+        flex-direction: row; /* Ensure description and image blocks are side by side */
+        flex-wrap: nowrap; /* Prevent wrapping */
+        justify-content: space-between; /* Space out content */
+        align-items: center; /* Align items vertically */
+        gap: 10px; /* Adjust spacing between blocks */
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Add shadow to divide main blocks */
+        border-radius: 10px; /* Add slight rounding for a polished look */
     }
 
-    .description-block, .image-block {
-        width: 100%;
-        max-width: 100%;
+    .description-block {
+        flex: 0 0 42%; /* Reduce width slightly to add more space */
+        max-width: 42%; /* Ensure it doesn't exceed the container */
+        text-align: left; /* Align text to the left */
+        padding: 6%; /* Increase padding inside the block */
+        box-shadow: none; /* Remove shadow from description block */
+        border-radius: 0; /* Remove border radius */
+    }
+
+    .image-block {
+        flex: 0 0 42%; /* Reduce width slightly to add more space */
+        max-width: 42%; /* Ensure it doesn't exceed the container */
+        text-align: center; /* Center-align images */
+        padding: 6%; /* Increase padding inside the block */
+        box-shadow: none; /* Remove shadow from image block */
+        border-radius: 0; /* Remove border radius */
     }
 
     .main-image {
-        width: 100%;
-        max-width: 400px;
+        width: 95%; /* Slightly reduce width for better fit */
+        max-width: 320px; /* Limit maximum width */
+        height: auto; /* Maintain aspect ratio */
+        margin: 0 auto; /* Center the image */
     }
 
-    .promo-container {
-        flex-direction: column;
-        align-items: center;
-        padding: 10px;
+    .promo-widget {
+        width: 100%; /* Ensure the widget spans the full width */
+        padding: 10px; /* Add padding for spacing */
+        box-sizing: border-box; /* Include padding in width calculation */
+        height: auto; /* Adjust height dynamically */
+        margin-bottom: 200px; /* Add space below the widget to prevent footer overlap */
     }
 
     .promo-slide {
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
+        flex-direction: column; /* Stack content vertically */
+        align-items: center; /* Center-align content */
+        gap: 15px; /* Add spacing between image and text */
     }
 
     .slide-image {
-        width: 90%;
-        height: auto;
-        margin-bottom: 15px;
+        width: 100%; /* Ensure all images take the same width */
+        max-width: 250px; /* Limit maximum width for consistency */
+        height: 150px; /* Set a fixed height for uniformity */
+        object-fit: cover; /* Ensure images maintain aspect ratio */
+        margin-bottom: 10px; /* Add spacing below image */
     }
 
     .slide-text {
-        width: 90%;
-        text-align: center;
-        font-size: 16px;
-        padding: 0 5px;
-    }
-
-    .promo-arrow {
-        display: none;
+        width: 90%; /* Adjust text width for better readability */
+        text-align: center; /* Center-align text */
+        font-size: 1rem; /* Adjust font size for readability */
+        padding: 5px; /* Add slight padding */
     }
 }
 
 /* Extra small phones (<480px) */
 @media (max-width: 480px) {
-    .slide-text {
-        font-size: 14px;
-        padding: 0 3px;
+    .description-block {
+        text-align: left; /* Align text to the left for better readability */
+        padding: 10px; /* Add padding for spacing */
     }
 
-    .promo-widget {
-        margin: 20px 0;
+    .description-block h2 {
+        font-size: 1.5rem; /* Reduce heading size */
+        margin-bottom: 10px; /* Adjust spacing */
+    }
+
+    .image-block {
+        text-align: center; /* Center-align images */
+        margin-bottom: 15px; /* Add spacing below images */
+    }
+
+    .main-image {
+        width: 100%; /* Ensure images take full width */
+        max-width: 300px; /* Limit maximum width */
+        height: auto; /* Maintain aspect ratio */
     }
 }
 

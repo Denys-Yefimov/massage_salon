@@ -22,7 +22,7 @@
   <div class="footer-container">
       <div class="footer-contact">
           <p>
-              <span><i class="fas fa-envelope"></i> 
+              <span><i class="fas fa-envelope"></i>  
                   <a href="<?php echo $email_url; ?>" target="_blank">
                       <?php echo htmlspecialchars($email); ?>
                   </a>

@@ -20,7 +20,6 @@
             <li><button onclick="location.href='index.php'">Home</button></li>
             <li><button>About</button></li>
             <li><button onclick="location.href='massages.php'">Services</button></li>
-            <li><button>Gallery</button></li>
             <li><button onclick="location.href='booking.php'">Booking</button></li>
         </ul>
     </nav>

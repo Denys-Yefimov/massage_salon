@@ -1,35 +1,36 @@
 /* === Footer: Desktop === */
 footer {
-    position: fixed;
-    transform: translateX(10%);
-    width: 100%;
+    position: fixed; /* Ensure footer stays at the bottom */
+    bottom: 0;
+    width: 100%; /* Full width across all pages */
     max-width: 1200px;
-    padding: 15px 20px 5px 20px; /* top right bottom left */
-    background: #714a94;
-    color: #fff;
+    padding: 15px 20px 5px 20px; /* Consistent padding */
+    background: #714a94; /* Consistent background color */
+    color: #fff; /* Consistent text color */
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
-    box-shadow: 0 -3px 10px rgba(0,0,0,0.2);
+    box-shadow: 0 -3px 10px rgba(0,0,0,0.2); /* Consistent shadow */
     font-family: 'Outfit', sans-serif;
     box-sizing: border-box;
-    bottom: 0;
-    height: 120px; /* достаточно для прижатия футер-контейнера вниз */
+    height: 120px; /* Consistent height */
+    left: 50%; /* Center the footer horizontally */
+    transform: translateX(-50%); /* Adjust for centering */
 }
 
 .footer-container {
     display: flex;
     justify-content: space-between;
-    align-items: flex-end; /* прижимаем контакты и соцсети к низу футера */
+    align-items: flex-end; /* Align content to the bottom */
     width: 100%;
-    gap: 15px;
+    gap: 15px; /* Consistent spacing */
 }
 
 .footer-contact {
     display: flex;
     flex-direction: column;
-    justify-content: flex-end; /* прижимает текст к низу блока */
+    justify-content: flex-end; /* Align text to the bottom */
     max-width: 50%;
-    font-size: 0.9rem;
+    font-size: 0.9rem; /* Consistent font size */
 }
 
 .footer-contact p {
@@ -52,7 +53,7 @@ footer {
     display: flex;
     justify-content: flex-end;
     align-self: center;
-    gap: 10px;
+    gap: 10px; /* Consistent spacing */
 }
 
 .social-btn {
@@ -83,12 +84,11 @@ footer {
 
 .footer-politics {
     position: absolute;
-    bottom: 10px;  
+    bottom: 10px;
     left: 50%;
     transform: translateX(-50%);
-    width: auto;
     text-align: center;
-    font-size: 0.8rem;
+    font-size: 0.8rem; /* Consistent font size */
 }
 
 .footer-politics a {
@@ -106,12 +106,19 @@ footer {
         width: 100%;
         right: 10%;
         height: auto; /* адаптивная высота */
+        text-align: center; /* Center align footer content */
+        margin: 0 auto; /* Center the footer horizontally */
+        left: 50%; /* Center the footer horizontally */
+        transform: translateX(-50%); /* Adjust for centering */
     }
 
     .footer-container { 
         flex-direction: column;
         align-items: center;
+        justify-content: center; /* Center align all footer elements */
         gap: 12px;
+        margin: 0 auto; /* Center the container horizontally */
+        margin-left: 0; /* Add distance from the left border */
     }
 
     .footer-contact {
@@ -148,9 +155,33 @@ footer {
         font-size: 0.9rem;
     }
 
+    .footer-contact {
+        display: flex;
+        flex-direction: column; /* Stack rows vertically */
+        align-items: center; /* Center align all content */
+        text-align: center; /* Center text alignment */
+        gap: 10px; /* Add spacing between rows */
+    }
+
+    .footer-contact p {
+        display: flex;
+        flex-direction: column; /* Stack icon and text vertically */
+        align-items: center; /* Center align icon and text */
+        gap: 10px; /* Reduce spacing between icon and text */
+        margin: 0; /* Remove extra margin */
+    }
+
+    .footer-contact p i {
+        font-size: 1.5rem; /* Increase icon size for better visibility */
+        margin-right: 0; /* Reset margin */
+    }
+
+    .footer-contact p span {
+        font-size: 0.85rem; /* Slightly smaller text size */
+    }
 
     .footer-politics {
-        font-size: 0.7rem;
+        font-size: 0.6rem; /* Reduce text size for footer policies */
     }
 }
 
