@@ -12,9 +12,10 @@ body {
 
 /* Main Block Styling */
 .main-container {
+    width: 90%;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-end;
     padding: 50px 20px;
     gap: 30px;
     flex-wrap: wrap; /* перенос колонок на маленьких экранах */
@@ -23,7 +24,9 @@ body {
 .description-block {
     flex: 1 1 400px;
     max-width: 600px;
+    text-align: center;
 }
+
 
 .description-block h2 {
     font-size: 2rem;
@@ -36,8 +39,21 @@ body {
     text-align: center;
 }
 
+.logo-image{
+    width: 60%;
+    display: flex;
+    margin-right: 0 !important;
+    max-width: 300px;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    margin-left: 20%;
+}
+
+
 .main-image {
-    width: 40%;
+    position: relative;
+    width: 60%;
     max-width: 300px;
     height: auto;
     border-radius: 15px;
@@ -115,7 +131,7 @@ body {
 
 .promo-wrapper {
     display: flex;
-    transition: transform 0.3s ease-in-out; /* скрывает выступающие части следующих слайдов */
+    transition: transform 1.5s ease-in-out; /* меняет скорость смены слайдов*/
 }
 
 .slide-image {
@@ -179,7 +195,7 @@ body {
     background: #ccc;
     border-radius: 50%;
     cursor: pointer;
-    transition: background 0.3s;
+    transition: background 0.8s;
 }
 
 .promo-dot.active {
